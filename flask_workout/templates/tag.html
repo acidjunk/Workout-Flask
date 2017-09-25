@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Workouts met tag: <em>{{ tag }}</em></h2>
+    {% with workouts=workouts %}
+        {% include "_list.html" %}
+    {% endwith %}
+{% endblock content %}

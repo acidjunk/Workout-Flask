@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ workout.title }}</h2>
+
+    <i>{{ workout.date }}</i>
+    {% if workout.meta.tags|length %}
+        | Tagged:
+        {% for workout_tag in workout.meta.tags %}
+            <a href="{{ url_for("tag", tag=workout_tag) }}">{{ workout_tag }}</a>
+        {% endfor %}
+    {% endif %}
+    <hr>
+
+    {{ workout.html|safe }}
+{% endblock content %}
